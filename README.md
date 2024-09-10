@@ -1,5 +1,5 @@
 # Day-8-Installing-Sysmon-on-a-Windows-Server
-# How to Install Sysmon on a Windows Server and Confirm Telemetry
+## How to Install Sysmon on a Windows Server and Confirm Telemetry
 
 Sysmon (System Monitor) is a powerful tool that provides detailed information about system activity and helps in monitoring and analyzing system events. It is widely used by system administrators and cybersecurity professionals to gain visibility into suspicious activities, detect malware, and enhance system security.
 
