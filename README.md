@@ -1,95 +1,119 @@
-# Day-8-Installing-Sysmon-on-a-Windows-Server
-## How to Install Sysmon on a Windows Server and Confirm Telemetry
+Here’s an enhanced version of the repository using emojis to make it more visually engaging, while maintaining all links and commands:
 
-Sysmon (System Monitor) is a powerful tool that provides detailed information about system activity and helps in monitoring and analyzing system events. It is widely used by system administrators and cybersecurity professionals to gain visibility into suspicious activities, detect malware, and enhance system security.
+# 🌟 Day-8: Installing Sysmon on a Windows Server 🌟
 
-In this guide, I will walk you through the process of installing Sysmon on a Windows Server, configuring it with a popular configuration file, and verifying that it is capturing telemetry. Let’s get started!
+**Sysmon** (System Monitor) is a powerful tool used to gain visibility into system activities, detect malware, and enhance security. In this guide, we'll walk you through installing Sysmon on a Windows Server, configuring it with a popular configuration file, and verifying that it captures telemetry. Let’s dive in! 💻🔍
 
-## Step 1: Download Sysmon and the Configuration File
+---
 
-To begin, you need to connect to your Windows Server via Remote Desktop Protocol (RDP) and download Sysmon.
+## 🎯 Objectives:
+- Install **Sysmon** on a Windows Server 🖥️
+- Configure **Sysmon** with a popular configuration file ⚙️
+- Confirm telemetry via **Event Viewer** 📊
 
-### 1.1 Connect to Your Windows Server
+---
 
-- Use your Host RDP client to connect to the Windows Server where you want to install Sysmon. Once connected, proceed with the following steps.
+## 🛠️ Step 1: Download Sysmon and the Configuration File
 
-### 1.2 Download Sysmon
+To get started, we need to download **Sysmon** and a configuration file to capture detailed logs.
 
-- Open Microsoft Edge or any web browser available on your Windows Server.
-- Type “Sysmon download” in the search bar and navigate to the official [Microsoft Sysinternals](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon) website.
-- Download the latest version of Sysmon from the website. This will typically be a ZIP file containing Sysmon executables.
+### 1.1 💻 Connect to Your Windows Server
 
-### 1.3 Extract Sysmon
+- Use your Host RDP client to connect to the Windows Server where Sysmon will be installed. Once connected, proceed to the next steps.
 
-- Once the download is complete, navigate to your **Downloads** folder.
-- Right-click on the downloaded Sysmon ZIP file and select **Extract All**. This will create a new folder containing the Sysmon executable files.
+---
 
-### 1.4 Download the Sysmon Configuration File
+### 1.2 🌐 Download Sysmon
 
-To make Sysmon useful, we need a configuration file that tells it what activities to log. A well-known configuration is the **Sysmon Olaf Configuration** available on GitHub.
+- Open **Microsoft Edge** or any available web browser on your Windows Server.
+- Search for "Sysmon download" and go to the official [Microsoft Sysinternals](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon) website.
+- Download the latest version of **Sysmon** (typically a ZIP file containing executables).
 
-- Open your browser again and search for **Sysmon Olaf Configuration GitHub**.
-- Go to the GitHub repository and scroll down to find `sysmonconfig.xml`.
-- Click on the file and select **Raw** to view the raw XML content.
-- Right-click on the page, choose **Save As**, and save the `sysmonconfig.xml` file in the same folder where you extracted Sysmon.
+---
 
-## Step 2: Install Sysmon
+### 1.3 📂 Extract Sysmon
 
-Now that we have Sysmon and the configuration file ready, it’s time to install Sysmon on the server.
+- After the download, navigate to your **Downloads** folder.
+- Right-click the Sysmon ZIP file and select **Extract All**. This will create a folder containing the Sysmon executable files.
 
-### 2.1 Open PowerShell as Administrator
+---
 
-- Click on the Start Menu and search for **PowerShell**.
-- Right-click on **Windows PowerShell** and select **Run as administrator**.
+### 1.4 📝 Download the Sysmon Configuration File
 
-### 2.2 Navigate to the Sysmon Directory
+We’ll use a popular **Sysmon Olaf Configuration** from GitHub to define the activities Sysmon should log.
 
-- In the PowerShell window, use the `cd` command to navigate to the directory where you extracted Sysmon. For example:
+- Search for **Sysmon Olaf Configuration GitHub**.
+- Visit the repository, scroll to find `sysmonconfig.xml`.
+- Click **Raw** to view the XML content, right-click, and choose **Save As**. Save this file in the same folder where you extracted Sysmon.
 
-    ```bash
-    cd C:\Users\<YourUsername>\Downloads\Sysmon
-    ```
+---
 
-- Replace `<YourUsername>` with your actual username or the path where Sysmon is extracted.
+## 🖥️ Step 2: Install Sysmon
 
-### 2.3 Install Sysmon with the Configuration File
+With Sysmon and the configuration file downloaded, we can now install **Sysmon** on your server.
 
-- Run the following command to install Sysmon with the `sysmonconfig.xml` configuration file:
+### 2.1 🔧 Open PowerShell as Administrator
 
-    ```bash
-    .\Sysmon64.exe -i sysmonconfig.xml
-    ```
+- Click on the **Start Menu**, search for **PowerShell**.
+- Right-click **Windows PowerShell** and select **Run as administrator**.
 
-- If you are prompted to agree to the Sysinternals License Terms, click **Agree**.
+---
 
-Once this is complete, Sysmon will be installed and running on your server with the specified configuration.
+### 2.2 📂 Navigate to the Sysmon Directory
 
-![insert image here](image.jpg)
-![insert image here](image.jpg)
+- In the PowerShell window, navigate to the directory where Sysmon is located:
 
-### Successfully Installed Sysmon
+   ```bash
+   cd C:\Users\<YourUsername>\Downloads\Sysmon
+   ```
 
-## Step 3: Confirm Telemetry in Event Viewer
+- Replace `<YourUsername>` with the actual path to the folder where Sysmon is extracted.
 
-To ensure that Sysmon is capturing and logging telemetry correctly, you can check the logs in the Event Viewer.
+---
 
-### 3.1 Open Event Viewer
+### 2.3 🚀 Install Sysmon with the Configuration File
 
-- Click on the Start Menu and search for **Event Viewer**.
-- Open the Event Viewer application.
+- To install Sysmon and apply the configuration file, run the following command:
 
-### 3.2 Navigate to Sysmon Logs
+   ```bash
+   .\Sysmon64.exe -i sysmonconfig.xml
+   ```
 
-- In the left pane of the Event Viewer, navigate to **Application and Services Logs > Microsoft > Windows**.
-- Scroll down and look for **Sysmon**.
-- Click on **Operational** under the Sysmon folder.
-- You should now see a stream of logs generated by Sysmon. These logs will provide detailed information on system activity, such as process creation, network connections, and file modifications.
+- If prompted, agree to the **Sysinternals License Terms** by clicking **Agree** ✅.
 
-![insert image here](image.jpg)
-## Conclusion
+Once complete, Sysmon will be installed and configured on your server! 🎉
 
-Congratulations! You have successfully installed Sysmon on your Windows Server, configured it using a popular Sysmon configuration file, and confirmed that it is logging telemetry in the Event Viewer. 
+![Successfully Installed Sysmon](image.jpg)
 
-With Sysmon in place, you now have a powerful tool to monitor your server for suspicious activity and enhance your security posture. 
+---
 
-Remember to keep your Sysmon configuration file up to date and adjust it according to your monitoring needs. **Happy monitoring!**
+## 📊 Step 3: Confirm Telemetry in Event Viewer
+
+After installation, we need to verify that **Sysmon** is logging telemetry in the **Event Viewer**.
+
+### 3.1 🔍 Open Event Viewer
+
+- Click on the **Start Menu** and search for **Event Viewer**.
+- Open the **Event Viewer** application.
+
+---
+
+### 3.2 📜 Navigate to Sysmon Logs
+
+- In the left pane, navigate to **Application and Services Logs > Microsoft > Windows**.
+- Scroll down to locate **Sysmon**.
+- Click on **Operational** under the **Sysmon** folder.
+
+You should now see logs generated by Sysmon 📝, detailing system activities like process creation, network connections, and file modifications.
+
+![Sysmon Logs in Event Viewer](image.jpg)
+
+---
+
+## 🎉 Conclusion
+
+Congratulations! 🎊 You’ve successfully installed **Sysmon** on your Windows Server, configured it with the **Sysmon Olaf Configuration**, and verified telemetry in the **Event Viewer**. 
+
+With Sysmon in place, you now have a robust tool to monitor your server for suspicious activity and bolster your security posture 🔐.
+
+Don’t forget to keep your configuration file updated to meet your evolving monitoring needs. **Happy monitoring!** 🌟
