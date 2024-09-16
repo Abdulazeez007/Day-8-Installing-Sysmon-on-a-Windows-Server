@@ -1,5 +1,3 @@
-Here’s an enhanced version of the repository using emojis to make it more visually engaging, while maintaining all links and commands:
-
 # 🌟 Day-8: Installing Sysmon on a Windows Server 🌟
 
 **Sysmon** (System Monitor) is a powerful tool used to gain visibility into system activities, detect malware, and enhance security. In this guide, we'll walk you through installing Sysmon on a Windows Server, configuring it with a popular configuration file, and verifying that it captures telemetry. Let’s dive in! 💻🔍
